@@ -45,7 +45,7 @@ def get_cupcake(cupcake_id):
     cupcake = Cupcake.query.get_or_404(cupcake_id)
     return jsonify(serialize_cupcake(cupcake))
 
-@app.route('api/cupcakes', methods=['POST'])
+@app.route('/api/cupcakes', methods=['POST'])
 def add_cupcake():
     cupcake = Cupcake(
         image=request.json['image'],
@@ -72,7 +72,7 @@ def delete_cupcake(cupcake_id):
     cupcake = Cupcake.query.get_or_404(cupcake_id)
     db.session.delete(cupcake)
     db.session.commit()
-    #code 204 means no content (https://restfulapi.net/http-status-204-no-content/)
+    #code 204 means 'no content' (https://restfulapi.net/http-status-204-no-content/)
     return (jsonify({}), 204) 
  
 
