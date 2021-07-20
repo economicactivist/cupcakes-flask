@@ -26,6 +26,14 @@ def serialize_cupcake(cupcake):
         'size': cupcake.size,
     }
 
+@app.route('/')
+@app.route('/cupcakes')
+def index():
+    return render_template('index.html')
+
+
+
+
 @app.route('/api/cupcakes')
 def get_cupcakes():
     cupcakes = Cupcake.query.all()
