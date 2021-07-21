@@ -53,6 +53,9 @@ def add_cupcake():
         flavor=request.json['flavor'],
         size=request.json['size']
     )
+    print('*****************')
+    print(cupcake)
+    print('*****************')
     db.session.add(cupcake)
     db.session.commit()
     return (jsonify(serialize_cupcake(cupcake)), 201)

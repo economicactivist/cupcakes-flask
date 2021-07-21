@@ -7,17 +7,14 @@ $( "#form" ).submit(function( event, addCupcake) {
         $select = $(".rating").select2()
     
     async function addCupcake() {
-        let cupcake = await $.ajax({
-            url: "/api/cupcake",
-            type: "POST",
-            data: {
-                image: $inputs.eq(0).val(),
-                flavor: $inputs.eq(1).val(),
-                size: $inputs.eq(2).val(),
-                rating: $select.val()
-            }
-        });
-        alert( "Cupcake created: " + cupcake.flavor );
+        await axios.post( "http://localhost:5000/api/cupcakes", {
+            image: $form.find( "input[name=image]" ).val(),
+            flavor: $form.find( "input[name=flavor]" ).val(),
+            size: $form.find( "input[name=size]" ).val(),
+            rating: $select.val()
+
+        }); 
+        alert( "Cupcake added!" );
     }
     addCupcake()
 
