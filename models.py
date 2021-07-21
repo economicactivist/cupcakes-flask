@@ -11,7 +11,7 @@ def db_connect(app):
 """Models for Cupcake App."""
 
 class Cupcake(db.Model):
-    __tablename__ = "users"
+    __tablename__ = "cupcakes"
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     flavor = db.Column(db.String(50), nullable=False)
     size = db.Column(db.String(20), nullable=False)

@@ -1,6 +1,29 @@
-$( "#form" ).submit(function( event ) {
+$(document).ready()
+$( "#form" ).submit(function( event, addCupcake) {
     alert( "Handler for .submit() called." );
     event.preventDefault();
+    let $form = $( this ),
+        $inputs = $form.find( "input" ),
+        $select = $(".rating")
+        $select.each(function( index, element ) {
+            $( element ).select2();
+        }
+    );
+    async function addCupcake() {
+        let cupcake = await $.ajax({
+            url: "/api/cupcake",
+            type: "POST",
+            data: {
+                image: $inputs.eq(0).val(),
+                flavor: $inputs.eq(1).val(),
+                size: $inputs.eq(2).val(),
+                rating: $select.val()
+            }
+        });
+        alert( "Cupcake created: " + cupcake.flavor );
+    }
+    addCupcake()
+
   });
 
 $(function(){
