@@ -1,14 +1,11 @@
-$(document).ready()
+// $(document).ready()
 $( "#form" ).submit(function( event, addCupcake) {
     alert( "Handler for .submit() called." );
     event.preventDefault();
     let $form = $( this ),
         $inputs = $form.find( "input" ),
-        $select = $(".rating")
-        $select.each(function( index, element ) {
-            $( element ).select2();
-        }
-    );
+        $select = $(".rating").select2()
+    
     async function addCupcake() {
         let cupcake = await $.ajax({
             url: "/api/cupcake",
