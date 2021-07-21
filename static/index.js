@@ -1,11 +1,10 @@
 // $(document).ready()
 $( "#form" ).submit(function( event, addCupcake) {
-    alert( "Handler for .submit() called." );
-    event.preventDefault();
-    let $form = $( this ),
-        $inputs = $form.find( "input" ),
-        $select = $(".rating").select2()
-    
+    alert( "Handler for .submit() called." )
+    event.preventDefault()
+    let $form = $( this )
+        $select = $(".rating")
+
     async function addCupcake() {
         await axios.post( "http://localhost:5000/api/cupcakes", {
             image: $form.find( "input[name=image]" ).val(),
