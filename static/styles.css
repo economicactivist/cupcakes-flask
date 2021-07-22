@@ -1,0 +1,14 @@
+#cupcakes{
+    background-color: #f0f0f0;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.cupcake-img-div{
+    max-width: 200px;
+    max-height: 200px;
+    margin: 10px;
+}

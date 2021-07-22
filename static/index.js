@@ -18,23 +18,26 @@ async function getCupcakes() {
     return cupcakeList;
 }
 
-$(document).ready(() => {
+$(document).ready(async () => {
     let cupcakes = await getCupcakes();
-    let list = document.querySelector('#cupcakes');
-    let ul = list.querySelector('ul');
-    ul.innerHTML = '';
+    console.log(typeof cupcakes);
+    let cupcakeDiv = document.querySelector('#cupcakes');
+    
     console.log(cupcakes)
-    cupcakes.forEach(cupcake => {
-        let li = document.createElement('li');
-        li.innerHTML = cupcake;
-        ul.appendChild(li);
-    });
+    for (let i = 0; i < cupcakes.length; i++) {
+        let cupcakeImageDiv = document.createElement('div');
+        cupcakeImageDiv.className = 'cupcake-image-div';
+        let cupcakeImage = document.createElement('img');
+        cupcakeImage.src = cupcakes[i]['image']
+        console.log(cupcakeImage.src)
+        console.log(cupcakes[i])
+        cupcakeDiv.appendChild(cupcakeImageDiv);
+        cupcakeImageDiv.appendChild(cupcakeImage);
+
+    }
+
     alert('cupcake list loaded')
 });
-
-    
-
-
 
 $( "#form" ).submit(function( event, addCupcake) {
     alert( "Handler for .submit() called." )

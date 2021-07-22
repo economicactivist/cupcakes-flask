@@ -14,7 +14,7 @@ app.debug=True
 debug = DebugToolbarExtension(app)
 
 db_connect(app)
-db.drop_all()
+# db.drop_all()
 db.create_all()
 
 def serialize_cupcake(cupcake):
