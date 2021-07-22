@@ -22,17 +22,19 @@ $(document).ready(async () => {
     let cupcakes = await getCupcakes();
     console.log(typeof cupcakes);
     let cupcakeDiv = document.querySelector('#cupcakes');
+    cupcakeLength = Object.keys(cupcakes).length;
     
     console.log(cupcakes)
-    for (let i = 0; i < cupcakes.length; i++) {
+    for (let i = 0; i < cupcakeLength; i++) {
         let cupcakeImageDiv = document.createElement('div');
         cupcakeImageDiv.className = 'cupcake-image-div';
         let cupcakeImage = document.createElement('img');
-        cupcakeImage.src = cupcakes[i]['image']
+        cupcakeImage.src = cupcakes['cupcakes'][i]['image']
         console.log(cupcakeImage.src)
-        console.log(cupcakes[i])
+        console.log(cupcakes['cupcakes'])
         cupcakeDiv.appendChild(cupcakeImageDiv);
         cupcakeImageDiv.appendChild(cupcakeImage);
+
 
     }
 
