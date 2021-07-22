@@ -22,7 +22,7 @@ $(document).ready(async () => {
     let cupcakes = await getCupcakes();
     console.log(typeof cupcakes);
     let cupcakeDiv = document.querySelector('#cupcakes');
-    cupcakeLength = Object.keys(cupcakes).length;
+    cupcakeLength = Object.keys(cupcakes.cupcakes).length;
     
     console.log(cupcakes)
     for (let i = 0; i < cupcakeLength; i++) {
