@@ -13,14 +13,17 @@
 
 async function getCupcakes() {
     let cupcakeList = await fetch('api/cupcakes').then(res => res.json());
+    console.log(typeof cupcakeList);
+    console.log(cupcakeList)
     return cupcakeList;
 }
 
 $(document).ready(() => {
-    let cupcakes = getCupcakes();
+    let cupcakes = await getCupcakes();
     let list = document.querySelector('#cupcakes');
     let ul = list.querySelector('ul');
     ul.innerHTML = '';
+    console.log(cupcakes)
     cupcakes.forEach(cupcake => {
         let li = document.createElement('li');
         li.innerHTML = cupcake;
