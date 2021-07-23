@@ -27,13 +27,27 @@ $(document).ready(async () => {
     console.log(cupcakes)
     for (let i = 0; i < cupcakeLength; i++) {
         let cupcakeImageDiv = document.createElement('div');
-        cupcakeImageDiv.className = 'cupcake-image-div';
+        cupcakeImageDiv.className = 'cupcake-img-div';
         let cupcakeImage = document.createElement('img');
         cupcakeImage.src = cupcakes['cupcakes'][i]['image']
+        let infoDiv = document.createElement('div');
+        infoDiv.className = 'cupcake-info-div';
+        let cupcakeFlavor = document.createElement('p');
+        cupcakeFlavor.innerHTML = `Flavor: ${cupcakes['cupcakes'][i]['flavor']}`
+        let cupcakeRating = document.createElement('p');
+        cupcakeRating.innerHTML = `Rating: ${cupcakes['cupcakes'][i]['rating']}`
+        let cupcakeSize = document.createElement('p');
+        cupcakeSize.innerHTML = `Size: ${cupcakes['cupcakes'][i]['size']}`
+        infoDiv.appendChild(cupcakeFlavor);
+        infoDiv.appendChild(cupcakeRating);
+        infoDiv.appendChild(cupcakeSize);
+
         console.log(cupcakeImage.src)
         console.log(cupcakes['cupcakes'])
         cupcakeDiv.appendChild(cupcakeImageDiv);
         cupcakeImageDiv.appendChild(cupcakeImage);
+        cupcakeImageDiv.appendChild(infoDiv);
+        
 
 
     }
